@@ -1,17 +1,8 @@
-<header class="site-header">
-  <div class="page-width header-grid">
-    <a class="logo" href="{{ routes.root_url }}">{{ shop.name }}</a>
-    <nav class="desktop-nav" aria-label="Main navigation">
-      {% if section.settings.menu != blank %}
-        {% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}
-      {% endif %}
-    </nav>
-    <div class="header-actions">
-      {% if section.settings.show_search %}<a href="{{ routes.search_url }}" aria-label="Search">Search</a>{% endif %}
-      <a href="{{ routes.cart_url }}" aria-label="Cart">Cart ({{ cart.item_count }})</a>
-    </div>
-  </div>
-</header>
+<header class="site-header"><div class="page-width header-grid">
+  <a class="logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }} home">{% if section.settings.logo != blank %}{{ section.settings.logo | image_url: width: 360 | image_tag: class: 'logo-image', alt: shop.name }}{% else %}<span>{{ section.settings.logo_text | default: shop.name | escape }}</span>{% endif %}</a>
+  <nav class="desktop-nav" aria-label="Main navigation">{% if section.settings.menu != blank %}{% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}{% else %}<a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="{{ routes.search_url }}">Find your fuel</a>{% endif %}</nav>
+  <div class="header-actions"><a href="{{ routes.search_url }}" aria-label="Search">SEARCH</a><a href="{{ routes.cart_url }}" aria-label="Shopping cart">BAG <span class="cart-count">{{ cart.item_count }}</span></a></div>
+</div></header>
 {% schema %}
-{"name":"Header","settings":[{"type":"link_list","id":"menu","label":"Menu"},{"type":"checkbox","id":"show_search","label":"Show search","default":true}],"presets":[{"name":"Header"}]}
+{"name":"Header","settings":[{"type":"image_picker","id":"logo","label":"Logo image"},{"type":"text","id":"logo_text","label":"Text logo override","default":"SPARKFUSION"},{"type":"link_list","id":"menu","label":"Menu"}],"presets":[{"name":"Header"}]}
 {% endschema %}

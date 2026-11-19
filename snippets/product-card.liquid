@@ -1,12 +1,16 @@
 <article class="product-card">
-  <a href="{{ product.url }}">
-    {% if product.featured_media %}
-      {{ product.featured_media.preview_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.featured_media.alt | default: product.title }}
-    {% else %}
-      {{ 'product-1' | placeholder_svg_tag: 'placeholder-image' }}
-    {% endif %}
+  <a class="product-card-image" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+    {% if product.featured_media %}{{ product.featured_media.preview_image | image_url: width: 720 | image_tag: loading: 'lazy', alt: product.featured_media.alt | default: product.title }}{% else %}{{ 'product-1' | placeholder_svg_tag: 'placeholder-image' }}{% endif %}
+    {% if product.tags contains 'best-seller' or product.tags contains 'Bestseller' %}<span class="product-badge">BEST SELLER</span>{% elsif product.tags contains 'new' or product.tags contains 'New' %}<span class="product-badge">NEW</span>{% elsif product.compare_at_price > product.price %}<span class="product-badge">SALE</span>{% endif %}
   </a>
-  <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
-  <p>{{ product.price | money }}</p>
-  {% if product.available == false %}<span>Sold out</span>{% endif %}
+  <div class="product-card-info">
+    {% if product.vendor != blank %}<p class="product-vendor">{{ product.vendor | escape }}</p>{% endif %}
+    <h3><a href="{{ product.url }}">{{ product.title | escape }}</a></h3>
+    <div class="product-card-price"><strong>{{ product.price | money }}</strong>{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}</div>
+    {% if show_quick_add and product.available %}
+      {% if product.has_only_default_variant %}
+        {% form 'product', product, class: 'quick-add-form' %}<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"><button class="button quick-add" type="submit">ADD TO CART <span aria-hidden="true">+</span></button>{% endform %}
+      {% else %}<a class="button quick-add" href="{{ product.url }}">CHOOSE OPTIONS <span aria-hidden="true">→</span></a>{% endif %}
+    {% elsif product.available == false %}<span class="sold-out-label">SOLD OUT</span>{% endif %}
+  </div>
 </article>

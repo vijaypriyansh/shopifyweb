@@ -1,4 +1,11 @@
 {
-  "sections": {"hero":{"type":"hero"},"featured":{"type":"featured-products","settings":{"heading":"Featured products","products_count":4}}},
-  "order": ["hero","featured"]
+  "sections": {
+    "hero": {"type": "hero", "settings": {"eyebrow": "FUEL YOUR NEXT LEVEL", "heading": "Built for the work you put in.", "button_label": "SHOP ALL SUPPLEMENTS", "button_link": "/collections/all-products", "note": "QUALITY YOU CAN FEEL. RESULTS YOU EARN."}},
+    "trust": {"type": "trust-points"},
+    "goals": {"type": "shop-by-goal"},
+    "featured": {"type": "featured-products", "settings": {"eyebrow": "THE CROWD FAVORITES", "heading": "Find your formula", "products_count": 4, "show_quick_add": true}},
+    "story": {"type": "brand-statement"},
+    "newsletter": {"type": "newsletter"}
+  },
+  "order": ["hero", "trust", "goals", "featured", "story", "newsletter"]
 }

@@ -1,9 +1,4 @@
-<footer class="site-footer">
-  <div class="page-width">
-    <a class="footer-logo" href="{{ routes.root_url }}">{{ shop.name }}</a>
-    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
-  </div>
-</footer>
+<footer class="site-footer"><div class="page-width footer-grid"><div><a class="footer-logo" href="{{ routes.root_url }}">{{ shop.name }}</a><p>{{ section.settings.tagline | escape }}</p></div><div><h2>Explore</h2>{% if section.settings.menu != blank %}{% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}{% else %}<a href="{{ routes.all_products_collection_url }}">Shop all products</a><a href="{{ routes.search_url }}">Search</a>{% endif %}</div><div><h2>Need help?</h2><a href="mailto:{{ shop.email }}">Contact us</a><a href="{{ routes.account_login_url }}">My account</a><a href="{{ routes.cart_url }}">Your cart</a></div></div><div class="page-width footer-bottom"><span>© {{ 'now' | date: '%Y' }} {{ shop.name }}</span><span>{{ section.settings.footnote | escape }}</span></div></footer>
 {% schema %}
-{"name":"Footer","settings":[],"presets":[{"name":"Footer"}]}
+{"name":"Footer","settings":[{"type":"text","id":"tagline","label":"Store tagline","default":"FUEL YOUR NEXT LEVEL."},{"type":"link_list","id":"menu","label":"Footer menu"},{"type":"text","id":"footnote","label":"Footer note","default":"Train · Recover · Repeat"}],"presets":[{"name":"Footer"}]}
 {% endschema %}

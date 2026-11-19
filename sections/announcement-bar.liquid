@@ -1,8 +1,4 @@
-<div class="announcement-bar">
-  <div class="page-width">
-    {% if section.settings.text != blank %}{{ section.settings.text | escape }}{% else %}Welcome to {{ shop.name }}{% endif %}
-  </div>
-</div>
+<div class="announcement-bar"><div class="page-width announcement-inner"><span>{{ section.settings.text | escape }}</span>{% if section.settings.link_label != blank %}<a href="{{ section.settings.link | default: routes.all_products_collection_url }}">{{ section.settings.link_label | escape }} →</a>{% endif %}</div></div>
 {% schema %}
-{"name":"Announcement bar","settings":[{"type":"text","id":"text","label":"Announcement","default":"Free shipping on orders over $50"}],"presets":[{"name":"Announcement bar"}]}
+{"name":"Announcement bar","settings":[{"type":"text","id":"text","label":"Announcement","default":"FREE SHIPPING ON PREPAID ORDERS"},{"type":"text","id":"link_label","label":"Link text","default":"SHOP NOW"},{"type":"url","id":"link","label":"Link"}],"presets":[{"name":"Announcement bar"}]}
 {% endschema %}

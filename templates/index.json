@@ -1,0 +1,4 @@
+{
+  "sections": {"hero":{"type":"hero"},"featured":{"type":"featured-products","settings":{"heading":"Featured products","products_count":4}}},
+  "order": ["hero","featured"]
+}

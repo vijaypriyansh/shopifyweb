@@ -1,0 +1,12 @@
+<article class="product-card">
+  <a href="{{ product.url }}">
+    {% if product.featured_media %}
+      {{ product.featured_media.preview_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: product.featured_media.alt | default: product.title }}
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder-image' }}
+    {% endif %}
+  </a>
+  <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+  <p>{{ product.price | money }}</p>
+  {% if product.available == false %}<span>Sold out</span>{% endif %}
+</article>

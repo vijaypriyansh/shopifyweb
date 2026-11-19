@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="page-width header-grid">
+    <a class="logo" href="{{ routes.root_url }}">{{ shop.name }}</a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {% if section.settings.menu != blank %}
+        {% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}
+      {% endif %}
+    </nav>
+    <div class="header-actions">
+      {% if section.settings.show_search %}<a href="{{ routes.search_url }}" aria-label="Search">Search</a>{% endif %}
+      <a href="{{ routes.cart_url }}" aria-label="Cart">Cart ({{ cart.item_count }})</a>
+    </div>
+  </div>
+</header>
+{% schema %}
+{"name":"Header","settings":[{"type":"link_list","id":"menu","label":"Menu"},{"type":"checkbox","id":"show_search","label":"Show search","default":true}],"presets":[{"name":"Header"}]}
+{% endschema %}

@@ -1,0 +1,8 @@
+<div class="announcement-bar">
+  <div class="page-width">
+    {% if section.settings.text != blank %}{{ section.settings.text | escape }}{% else %}Welcome to {{ shop.name }}{% endif %}
+  </div>
+</div>
+{% schema %}
+{"name":"Announcement bar","settings":[{"type":"text","id":"text","label":"Announcement","default":"Free shipping on orders over $50"}],"presets":[{"name":"Announcement bar"}]}
+{% endschema %}

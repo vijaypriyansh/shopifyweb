@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./c-DQ_S2_EH.js","./e-QEWDW7sI.js","./c--2rt5kpl.js","./c-GW2X-PBB.js","./c-DWXx8sQq.js"])))=>i.map(i=>d[i]);
+import{c as e,n as t,o as n}from"./c--2rt5kpl.js";import{d as r}from"./e-QEWDW7sI.js";function i(i){let[a,o]=n(null);return e(()=>{let e=!1;return r(()=>import(`./c-DQ_S2_EH.js`).then(e=>e.n).then(t=>{e||o(()=>t.ProductCardButton)}),__vite__mapDeps([0,1,2,3,4]),import.meta.url),()=>{e=!0}},[]),a?t(a,{...i}):null}export{i as t};

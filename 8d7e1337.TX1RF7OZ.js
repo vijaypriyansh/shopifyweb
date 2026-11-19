@@ -1,0 +1,1 @@
+function e(e){return e===`SUBSCRIPTION`?`subscription`:`oneTimePurchase`}export{e as t};

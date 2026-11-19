@@ -1,0 +1,1 @@
+import{Pt as e}from"./630ba094.BaH5gF1s.js";import{CE as t,mb as n,wT as r}from"./6ec9a0fa.DSSNWcoj.js";function i(){let{checkout:{negotiator:i}}=t(),a=i.parts.paymentLines;return e(()=>{let[e]=n(a.value,[r.AmazonPay]);return e})}export{i as t};

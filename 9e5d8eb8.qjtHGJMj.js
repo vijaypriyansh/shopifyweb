@@ -1,0 +1,1 @@
+var e=[`AT`,`AU`,`BE`,`BR`,`CA`,`CH`,`DE`,`DK`,`ES`,`FR`,`GB`,`HK`,`IN`,`IT`,`JP`,`LU`,`NL`,`NO`,`NZ`,`SA`,`SE`,`US`,`SG`],t=[`CA`,`US`];export{e as n,t};

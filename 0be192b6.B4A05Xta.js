@@ -1,0 +1,1 @@
+import{Gt as e,Jt as t}from"./630ba094.BaH5gF1s.js";function n(){let n=t(!0);return e(()=>()=>{n.current=!1},[]),n}export{n as t};

@@ -1,0 +1,1 @@
+import{c as e,i as t,o as n,s as r,t as i}from"./c--2rt5kpl.js";var a=[];function o(o={},s=a,c=[]){let[l,u]=n(null),d=t(null),[f,p]=n(null),m=r(e=>{u(e)},[]);return e(()=>{if(!l)return;let e=i(l,o,s);return d.current=e,p(e),()=>{e.destroy(),d.current=null,p(null)}},[l,o,s,...c]),[m,f,d,l]}export{o as t};
